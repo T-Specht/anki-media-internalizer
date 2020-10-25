@@ -77,7 +77,9 @@ def internailzeMedia(self, did):
                         if not askUser("An error occurred while opening %s\n%s\n\nDo you want to proceed?" % (url.encode("utf8"), e)):
                             return
             if changed:
-                note.flush(intTime())
+                # This line from original source code caused an error. Because of the way I import and interalize media, I removed intTime() as argument.
+                #note.flush(intTime())
+                note.flush()
                 affected_count += 1
             self.mw.progress.update()
     finally:
